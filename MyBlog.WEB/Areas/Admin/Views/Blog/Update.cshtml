@@ -1,0 +1,53 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <!-- general form elements -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Blog Details</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form method="post">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Blog Title</label>
+                        <input asp-for="BlogTitle" type="text" class="form-control" placeholder="@Model.BlogTitle">
+                    </div>
+                    <div class="form-group">
+                        <label>Blog Content</label>                        
+                       <textarea asp-for="BlogContent" type="text" class="form-control" placeholder="@Model.BlogContent"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Blog WriterName</label>
+                        <input asp-for="BlogWriterName" type="text" class="form-control" placeholder="@Model.BlogWriterName">
+                    </div>
+                    <div class="form-group">
+                        <label>Blog ThumbnailImage</label>
+                        <input asp-for="@Model.BlogThumbnailImage" type="text" class="form-control" placeholder="@Model.BlogThumbnailImage">
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+
+                        <select asp-items="@ViewBag.Categories" asp-for="CategoryID" class="form-control custom-select">
+                            <option selected="" disabled>Please Select Category</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Update Blog</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.card -->
+
+    </div>
+</div>
+

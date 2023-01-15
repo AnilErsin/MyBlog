@@ -1,0 +1,61 @@
+﻿@model MyBlog.WEB.Models.ViewModel.AddBlogImage
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <!-- general form elements -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Blog Details</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form method="post" enctype="multipart/form-data" asp-area="Admin" asp-controller="Blog" asp-action="Create">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Blog Title</label>
+                        <input asp-for="BlogTitle" type="text" class="form-control" placeholder="Enter blog title">
+                    </div>
+                    <div class="form-group">
+                        <label>Blog Writer Name</label>
+                        <input asp-for="BlogWriterName" type="text" class="form-control" placeholder="Enter blog writer">
+                    </div>
+                    <div class="form-group">
+                        <label>Blog Thumbnail Image</label>
+                        <input asp-for="ThumbnailImage" type="file" class="form-control " >
+                    </div>
+                    <div class="form-group">
+                        <label>Blog Content</label>
+                        <textarea asp-for="BlogContent" type="text" class="form-control" placeholder="Enter Content"></textarea>
+
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        @*<select>
+                        <option>Select Category</option>
+            <option>Category 1</option>
+            <option>Category 2</option>
+                        @foreach (var category in ViewBag.Categories as List<Project.Entity.Entity.Category>)
+            {
+                <option id="@category.Id">@category.CategoryName</option>
+            }
+                        </select>*@
+                        <select asp-items="@ViewBag.Categories" asp-for="CategoryID" class="form-control custom-select">
+                            <option selected="" disabled>Please Select Category</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Create Product</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.card -->
+
+    </div>
+</div>

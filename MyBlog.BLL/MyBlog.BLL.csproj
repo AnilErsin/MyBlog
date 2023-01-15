@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyBlog.Dal\MyBlog.Dal.csproj" />
+    <ProjectReference Include="..\MyBlog.Entities\MyBlog.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

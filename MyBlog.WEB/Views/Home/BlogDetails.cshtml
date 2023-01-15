@@ -1,0 +1,74 @@
+﻿@model List<Blog>
+
+@{
+    ViewData["Title"] = "BlogDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="banner-bottom">
+    <!--/blog-->
+    <div class="container">
+        <h3 class="tittle mb-5">Blog</h3>
+
+        <div class="row">
+            <!--left-->
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
+                    <div class="blog-grid-top">
+                        <div class="b-grid-top">
+                            <div class="blog_info_left_grid">
+                                <a href="single.html">
+                                    <img src="~/Blog/images/b1.jpg" class="img-fluid" alt="">
+                                </a>
+                            </div>
+                            <div class="blog-info-middle">
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <i class="far fa-calendar-alt"></i> @(((DateTime)item.CreatedDate).ToString("dd-MMM-yyyy"))
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h3>
+                            <a href="single.html">@item.BlogTitle </a>
+                        </h3>
+                        <p>
+                            @item.BlogContent
+                        </p>
+                    </div>
+                </div>
+            }
+
+            <!--//left-->
+            <!--right-->
+            <aside class="col-lg-4 agileits-w3ls-right-blog-con text-right">
+                <div class="right-blog-info text-left">
+                    <div class="tech-btm">
+                        <h4>Categories</h4>
+                        @foreach (var item in ViewBag.CategoryName)
+	{
+                    <ul class="list-group single">
+                        <li class="list-group-item d-flex justify-content-between align-items-center text-primary">
+                            @item.CategoryName
+                            <span class="badge badge-primary badge-pill"></span>
+                        </li>
+
+
+                    </ul>
+	}
+                    </div>
+
+                   @await Component.InvokeAsync("BlogLast1Post")
+
+                </div>
+
+            </aside>
+            <!--//right-->
+        </div>
+    </div>
+</section>
+

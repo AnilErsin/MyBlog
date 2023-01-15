@@ -1,0 +1,43 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-danger">
+            <div class="inner">
+                <h3>@ViewBag.KategoriSayisi</h3>
+
+                <p>Kategori Sayısı</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-info">
+            <div class="inner">
+                <h3>@ViewBag.BlogSayisi</h3>
+
+                <p>Toplam Blog Sayısı</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-bag"></i>
+            </div>
+
+        </div>
+    </div>
+    
+
+
+
+
+</div>
+
+

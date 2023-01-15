@@ -1,0 +1,23 @@
+﻿@model List<Blog>
+<div class="single-gd tech-btm">
+    <h4>Recent Post</h4>
+    @foreach (var item in Model)
+    {
+        <div class="blog-grids">
+            <div class="blog-grid-left">
+                <a href="/Home/BlogDetails/@item.ID">
+                    <img src="~/BlogImage/@item.BlogThumbnailImage" class="img-fluid" alt="">
+                </a>
+            </div>
+            <div class="blog-grid-right">
+
+                <h5>
+                    <a href="/Home/BlogDetails/@item.ID">@item.BlogTitle</a>
+                </h5>
+                <p>@item.BlogContent.Substring(0, item.BlogContent.Substring(0, 75).LastIndexOf(" "))...</p>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+
+    }
+</div>
